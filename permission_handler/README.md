@@ -235,6 +235,8 @@ rm -rf ~/Library/Developer/Xcode/DerivedData
 
 Then run `flutter build ios` or rebuild in Xcode as usual.
 
+> **Why is this necessary?** SPM only re-evaluates `Package.swift` when the file itself changes. It has no way to detect that `Info.plist` changed, so the `PERMISSION_*` defines computed from it stay cached. Clearing DerivedData forces a full re-evaluation.
+
 </details>
 
 ## How to use
