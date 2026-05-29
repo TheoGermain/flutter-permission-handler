@@ -179,7 +179,15 @@ You must list the permission you want to use in your application:
 
 > Requires Flutter 3.24.0 or higher and Xcode 15.0 or higher.
 
-With SPM, `Package.swift` automatically detects which permissions to enable by reading your app's `Info.plist`. A permission is compiled in when its corresponding usage description key is present:
+**Step 1 — Enable SPM in Flutter** (once per machine):
+
+```bash
+flutter config --enable-swift-package-manager
+```
+
+Flutter will then use SPM instead of CocoaPods to resolve this plugin. CocoaPods remains supported and is still used for plugins that don't provide a `Package.swift`.
+
+**Step 2 — Add permissions to `Info.plist`** as usual. With SPM, `Package.swift` automatically detects which permissions to enable by reading your app's `Info.plist`. A permission is compiled in when its corresponding usage description key is present:
 
 | Permission group | Info.plist key |
 |---|---|
